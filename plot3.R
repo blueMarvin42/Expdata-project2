@@ -3,7 +3,7 @@ SCC <- readRDS("Source_Classification_Code.rds")
 data<-transform(NEI,type=factor(type),year=factor(year))
 data2<-data[data$fips=="24510",]
 library("plyr")
-library(ggplot2)
+library("ggplot2")
 plotdata3<-ddply(data2,.(year,type),summarize,sum=sum(Emissions))
 png("plot3.png")
 gplot<-ggplot(plotdata3,aes(year,sum))
