@@ -9,6 +9,7 @@ data6$city[data6$fips=="24510"]<-"Baltimore"
 data6$city[data6$fips=="06037"]<-"LA"
 library("plyr")
 plotdata6<-ddply(data6,.(year,city),summarize,sum=sum(Emissions))
+library("ggplot")
 png("plot6.png")
 gplot<-ggplot(plotdata6,aes(year,sum))
 gplot+geom_point(aes(color=city),size=4)+labs(title="PM2.5 Emission from motor vehicle sources",
