@@ -6,7 +6,7 @@ vehicle<-as.data.frame(SCC[grep("vehicles",SCC$SCC.Level.Two,ignore.case=T),1])
 names(vehicle)<-"SCC"
 data5<-merge(vehicle,data2,by="SCC")
 library("plyr")
-library("ggplot")
+library("ggplot2")
 plotdata5<-ddply(data5,.(year),summarize,sum=sum(Emissions))
 png("plot5.png")
 gplot<-ggplot(plotdata5,aes(year,sum))
