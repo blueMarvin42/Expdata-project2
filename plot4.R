@@ -7,7 +7,7 @@ names(Combust)<-"SCC"
 data3<-merge(Combust,data,by="SCC")
 library("plyr")
 plotdata4<-ddply(data3,.(year),summarize,sum=sum(Emissions))
-library(ggplot2)
+library("ggplot2")
 png("plot4.png")
 gplot<-ggplot(plotdata4,aes(year,sum))
 gplot+geom_point(size=4)+labs(title="PM2.5 Emission from coal combustion-related sources ",
